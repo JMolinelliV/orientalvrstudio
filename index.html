@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oriental VR Studio | Realidad Virtual para Arquitectura en Uruguay</title>
+    <meta name="description"
+        content="Tours de inmersión total 1:1 para proyectos de arquitectura y Real Estate en Uruguay.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- HEADER / NAVEGACIÓN -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">Oriental VR Studio</div>
+            <nav class="main-nav">
+                <a href="#inicio" data-scroll="center">Inicio</a>
+                <a href="#diferencial" data-scroll="center">Diferencial</a>
+                <a href="#proceso" data-scroll="center">Proceso</a>
+                <a href="#servicios" data-scroll="center">Servicios</a>
+                <button class="btn-contact" onclick="scrollToContact()">Saber más</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-label">Oriental VR Studio · Uruguay</p>
+                <h1 class="hero-title">Caminá por tu futura casa hoy mismo</h1>
+                <p class="hero-subtitle">Realidad Virtual de alta gama para proyectos de arquitectura en Uruguay. Sentí
+                    el espacio antes de construirlo.</p>
+                <button class="btn-cta" onclick="scrollToContact()">Saber más</button>
+                <p class="hero-coverage">Cobertura nacional: Montevideo, Punta del Este, Colonia y todo el país.</p>
+            </div>
+            <div class="hero-image">
+                <div class="placeholder-image">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop"
+                        alt="Interior arquitectura moderna"
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAL 1:1 -->
+    <section id="diferencial" class="diferencial">
+        <div class="container">
+            <div class="video-placeholder">
+                <video class="diferencial-video" width="100%" height="500" style="border-radius: 12px; object-fit: cover;" muted playsinline>
+                    <source src="media/render_para_web.mp4" type="video/mp4">
+                    Tu navegador no soporta video HTML5.
+                </video>
+            </div>
+            <div class="diferencial-content">
+                <div>
+                    <p class="section-label">El Diferencial 1:1</p>
+                    <h2>Escala real para decidir con certeza</h2>
+                    <p class="section-text">Nuestros tours de inmersión total reproducen proporciones reales para que tomes decisiones de
+                        diseño antes de entrar en obra. Con iluminación realista y texturas de alta fidelidad, no notarás la diferencia con la realidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section id="proceso" class="tech-section">
+        <div class="container">
+            <div class="process-header">
+                <p class="section-label">El Proceso</p>
+                <h2>Así funciona</h2>
+                <p class="process-subtitle">Un flujo simple y ordenado para que tomes decisiones con confianza.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-media">
+                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=800&fit=crop"
+                            alt="Consulta inicial">
+                        <span class="process-badge">01</span>
+                    </div>
+                    <h3>Consulta inicial</h3>
+                    <p>Nos reunimos contigo para entender tu proyecto, plazos y expectativas. Sin compromiso.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-media">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=800&fit=crop"
+                            alt="Procesamiento">
+                        <span class="process-badge">02</span>
+                    </div>
+                    <h3>Procesamiento</h3>
+                    <p>Transformamos tus planos en una experiencia inmersiva de alta fidelidad. 100% confidencial y a escala.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-media">
+                        <img src="https://www.bokkagroup.com/hs-fs/hubfs/Woman-in-new-home-sales-office-wearing-virtual-reality-goggles2.jpg?width=1536&height=1024&name=Woman-in-new-home-sales-office-wearing-virtual-reality-goggles2.jpg"
+                            alt="Sesión VR">
+                        <span class="process-badge">03</span>
+                    </div>
+                    <h3>Sesión VR</h3>
+                    <p>Viví tu proyecto en escala real. Interactúa, camina, decide con certeza absoluta.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-media">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=800&fit=crop"
+                            alt="Iteración y decisión">
+                        <span class="process-badge">04</span>
+                    </div>
+                    <h3>Iteración y decisión</h3>
+                    <p>Realizá cambios en tiempo real. Valida decisiones antes de entrar en obra.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="servicios">
+        <div class="container">
+            <p class="section-label">Servicios</p>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <div class="servicio-image slide-in-top">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&h=800&fit=crop"
+                            alt="Proyectos residenciales"
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                    </div>
+                    <h3>Para Propietarios</h3>
+                    <p>Evitá errores de diseño y costos extra en obra. Visualizá escala, distribución y materiales antes
+                        de construir.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-image slide-in-bottom">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop"
+                            alt="Proyectos comerciales"
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                    </div>
+                    <h3>Para Arquitectos y Empresas</h3>
+                    <p>Presentaciones de venta que cierran proyectos de forma inmediata, con una experiencia inmersiva
+                        que acelera la toma de decisión.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO / FORMULARIO -->
+    <section id="contacto" class="contacto">
+        <div class="container">
+            <div class="contacto-content">
+                <div class="contacto-panel">
+                    <div class="contacto-panel-content">
+                        <p class="section-label">Contacto</p>
+                        <h2>Dejanos tu opinión</h2>
+                        <p>Este contacto es una encuesta breve para medir interés.</p>
+                        <ul class="contacto-list">
+                            <li>
+                                <span class="contacto-label">Ubicación</span>
+                                <span class="contacto-value">Montevideo, Uruguay</span>
+                            </li>
+                            <li>
+                                <span class="contacto-label">Cobertura</span>
+                                <span class="contacto-value">Todo el país</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <form class="formulario" id="formContacto"
+                    action="https://formsubmit.co/baf258f0bf7776ba3b6f166717d3931e"
+                    method="POST">
+
+                    <input type="hidden" name="_subject" value="Nuevo interés - Oriental VR Studio">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://TU-DOMINIO.com/#contacto">
+                    <input type="text" name="_honey" style="display:none">
+
+                    <label>
+                        <span>Nombre</span>
+                        <input type="text" name="nombre" required placeholder="Tu nombre">
+                    </label>
+                    <label>
+                        <span>Perfil</span>
+                        <div class="form-radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="tipo_cliente" value="propietario" checked>
+                                <span>Propietario</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="tipo_cliente" value="arquitecto">
+                                <span>Arquitecto ó Empresa</span>
+                            </label>
+                        </div>
+                    </label>
+                    <label>
+                        <span>Email (opcional)</span>
+                        <input type="email" name="email" placeholder="tu@email.com">
+                    </label>
+                    <label>
+                        <span>Teléfono (opcional)</span>
+                        <input type="tel" name="telefono" placeholder="Ej: 099 123 456">
+                    </label>
+                    <label>
+                        <span>Mensaje</span>
+                        <textarea name="mensaje" rows="4" placeholder="Contanos brevemente si te interesa"></textarea>
+                    </label>
+                    <button type="submit" class="btn-submit">Saber más</button>
+                    <p class="form-note" id="formNote"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Oriental VR Studio. Todos los derechos reservados.</p>
+            <p>Realidad Virtual para Arquitectura · Uruguay</p>
+        </div>
+    </footer>
+
+    <div id="statusModal" class="status-modal" hidden>
+        <div class="status-modal-backdrop" data-close-modal="true"></div>
+        <div class="status-modal-content" role="dialog" aria-modal="true" aria-labelledby="statusModalTitle">
+            <h3 id="statusModalTitle">¡Gracias por tu interés!</h3>
+            <p>Oriental VR Studio todavía no lanzó oficialmente, pero estamos muy cerca de arrancar.</p>
+            <p>Tu respuesta nos ayuda a validar la propuesta y priorizar el lanzamiento.</p>
+            <button type="button" class="btn-submit" id="closeStatusModal">Entendido</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
