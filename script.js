@@ -6,7 +6,14 @@ function scrollToContact() {
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const header = document.querySelector('.header');
+        const headerHeight = header ? header.offsetHeight : 0;
+        const extraOffset = 12;
+        const targetPosition = section.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraOffset;
+        window.scrollTo({
+            top: Math.max(targetPosition, 0),
+            behavior: 'smooth'
+        });
     }
 }
 
@@ -16,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const formNote = document.getElementById('formNote');
     const diferencialVideo = document.querySelector('.diferencial-video');
     const navLinks = document.querySelectorAll('[data-scroll="center"]');
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
     const statusModal = document.getElementById('statusModal');
     const closeStatusModalBtn = document.getElementById('closeStatusModal');
 
@@ -106,9 +115,30 @@ document.addEventListener('DOMContentLoaded', function() {
             if (targetId) {
                 event.preventDefault();
                 scrollToSection(targetId);
+                if (mainNav) {
+                    mainNav.classList.remove('is-open');
+                }
+                if (navToggle) {
+                    navToggle.setAttribute('aria-expanded', 'false');
+                }
             }
         });
     });
+
+    if (navToggle && mainNav) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('is-open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        document.addEventListener('click', (event) => {
+            const target = event.target;
+            if (target instanceof Node && !mainNav.contains(target) && !navToggle.contains(target)) {
+                mainNav.classList.remove('is-open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
 });
 
 // Animar elementos al scroll (opcional)
