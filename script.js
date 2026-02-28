@@ -3,13 +3,23 @@ function scrollToContact() {
     scrollToSection('contacto');
 }
 
-function scrollToSection(sectionId) {
+function scrollToSection(sectionId, options = {}) {
+    const { align = 'top', offset = 12 } = options;
     const section = document.getElementById(sectionId);
     if (section) {
         const header = document.querySelector('.header');
         const headerHeight = header ? header.offsetHeight : 0;
-        const extraOffset = 12;
-        const targetPosition = section.getBoundingClientRect().top + window.pageYOffset - headerHeight - extraOffset;
+        const viewportHeight = window.innerHeight;
+        const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
+        let targetPosition = sectionTop - headerHeight - offset;
+
+        if (align === 'center') {
+            const visibleViewportCenter = headerHeight + Math.max((viewportHeight - headerHeight) / 2, 0);
+            const sectionCenter = sectionTop + (section.offsetHeight / 2);
+            const navCompensation = headerHeight;
+            targetPosition = sectionCenter - visibleViewportCenter + navCompensation - offset;
+        }
+
         window.scrollTo({
             top: Math.max(targetPosition, 0),
             behavior: 'smooth'
@@ -114,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = link.getAttribute('href')?.replace('#', '');
             if (targetId) {
                 event.preventDefault();
-                scrollToSection(targetId);
+                scrollToSection(targetId, { align: 'center', offset: 0 });
                 if (mainNav) {
                     mainNav.classList.remove('is-open');
                 }

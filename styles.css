@@ -180,9 +180,7 @@ section[id] {
     background: linear-gradient(135deg, #f9fafb 0%, #f5f5f5 100%);
 }
 
-.hero-accent-image,
-.diferencial-accent-image,
-.contacto-accent-image {
+.accent-image {
     width: 100%;
     max-width: 300px;
     height: 160px;
@@ -199,14 +197,18 @@ section[id] {
     overflow: hidden;
 }
 
+.accent-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .hero-accent-image {
     margin-left: auto;
 }
 
-.diferencial-accent-image {
-    margin-top: 2rem;
-}
-
+.diferencial-accent-image,
 .contacto-accent-image {
     margin-top: 2rem;
 }
@@ -417,6 +419,63 @@ section[id] {
 
 .hero-image {
     position: relative;
+    width: 100%;
+    max-width: 560px;
+    margin-left: auto;
+    height: 500px;
+}
+
+.hero-mosaic {
+    isolation: isolate;
+}
+
+.hero-mosaic-tile {
+    position: absolute;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid rgba(72, 112, 184, 0.16);
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.14);
+    background: #f5f5f5;
+}
+
+.hero-mosaic-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-mosaic .tile-1 {
+    width: 380px;
+    height: 290px;
+    left: 0;
+    top: 18px;
+    z-index: 1;
+}
+
+.hero-mosaic .tile-2 {
+    width: 240px;
+    height: 190px;
+    right: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.hero-mosaic .tile-3 {
+    width: 255px;
+    height: 195px;
+    left: 50px;
+    bottom: -24px;
+    z-index: 5;
+}
+
+.hero-mosaic .tile-4 {
+    width: 290px;
+    height: 220px;
+    right: 34px;
+    bottom: 16px;
+    z-index: 4;
 }
 
 /* ========================================
@@ -1154,6 +1213,34 @@ section[id] {
         grid-template-columns: 1fr;
         gap: 40px;
         padding: 0 20px;
+    }
+
+    .hero-image {
+        max-width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .hero-mosaic-tile {
+        position: relative;
+        width: 100%;
+        height: 150px;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12);
+    }
+
+    .hero-mosaic .tile-1,
+    .hero-mosaic .tile-2,
+    .hero-mosaic .tile-3,
+    .hero-mosaic .tile-4 {
+        transform: none;
+        z-index: auto;
     }
 
     .hero-title {
