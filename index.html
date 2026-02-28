@@ -201,10 +201,14 @@
                         <input type="text" name="nombre" required placeholder="Tu nombre">
                     </label>
                     <label>
+                        <span>Apellido</span>
+                        <input type="text" name="apellido" required placeholder="Tu apellido">
+                    </label>
+                    <label>
                         <span>Perfil</span>
                         <div class="form-radio-group">
                             <label class="radio-option">
-                                <input type="radio" name="tipo_cliente" value="propietario" checked>
+                                <input type="radio" name="tipo_cliente" value="propietario" required>
                                 <span>Propietario</span>
                             </label>
                             <label class="radio-option">
@@ -214,8 +218,8 @@
                         </div>
                     </label>
                     <label>
-                        <span>Email (opcional)</span>
-                        <input type="email" name="email" placeholder="tu@email.com">
+                        <span>Email</span>
+                        <input type="email" name="email" required placeholder="tu@email.com">
                     </label>
                     <label>
                         <span>Teléfono (opcional)</span>
