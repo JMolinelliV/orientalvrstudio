@@ -206,16 +206,11 @@
                     </label>
                     <label>
                         <span>Perfil</span>
-                        <div class="form-radio-group">
-                            <label class="radio-option">
-                                <input type="radio" name="tipo_cliente" value="propietario" required>
-                                <span>Propietario</span>
-                            </label>
-                            <label class="radio-option">
-                                <input type="radio" name="tipo_cliente" value="arquitecto">
-                                <span>Arquitecto ó Empresa</span>
-                            </label>
-                        </div>
+                        <select name="tipo_cliente" required>
+                            <option value="" selected disabled>Seleccioná una opción</option>
+                            <option value="propietario">Propietario</option>
+                            <option value="arquitecto">Arquitecto o Empresa</option>
+                        </select>
                     </label>
                     <label>
                         <span>Email</span>

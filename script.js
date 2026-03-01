@@ -124,7 +124,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = link.getAttribute('href')?.replace('#', '');
             if (targetId) {
                 event.preventDefault();
-                scrollToSection(targetId, { align: 'center', offset: 0 });
+                const centerSectionsOnDesktop = window.matchMedia('(min-width: 1024px)').matches;
+                scrollToSection(
+                    targetId,
+                    centerSectionsOnDesktop
+                        ? { align: 'center', offset: 0 }
+                        : { align: 'top', offset: 12 }
+                );
                 if (mainNav) {
                     mainNav.classList.remove('is-open');
                 }
