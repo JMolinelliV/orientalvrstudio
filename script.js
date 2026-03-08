@@ -58,11 +58,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Obtener datos del formulario
             const formData = new FormData(form);
+            const submitUrl = form.action.includes('/ajax/')
+                ? form.action
+                : form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
 
             try {
-                // Enviando a través de FormSubmit.co (sin necesidad de registro)
-                const response = await fetch(form.action, {
+                // Enviando a través de FormSubmit.co (endpoint AJAX)
+                const response = await fetch(submitUrl, {
                     method: 'POST',
+                    headers: {
+                        Accept: 'application/json'
+                    },
                     body: formData
                 });
 
@@ -72,12 +78,29 @@ document.addEventListener('DOMContentLoaded', function() {
                     form.reset();
                     openStatusModal();
                 } else {
-                    throw new Error('Error en la respuesta del servidor');
+                    let serverMessage = '';
+                    try {
+                        const errorData = await response.json();
+                        if (errorData && typeof errorData.message === 'string') {
+                            serverMessage = errorData.message;
+                        }
+                    } catch (_) {
+                        serverMessage = '';
+                    }
+                    throw new Error(serverMessage || 'Error en la respuesta del servidor');
                 }
             } catch (error) {
                 console.error('Error:', error);
-                formNote.textContent = '✗ Hubo un error. Intenta de nuevo o contacta directamente.';
+                formNote.textContent = '⚠ No pudimos enviar por AJAX. Reintentando envío tradicional...';
                 formNote.className = 'form-note error';
+
+                try {
+                    HTMLFormElement.prototype.submit.call(form);
+                } catch (fallbackError) {
+                    console.error('Error en fallback:', fallbackError);
+                    formNote.textContent = `✗ ${error.message || 'Hubo un error. Intenta de nuevo o contacta directamente.'}`;
+                    formNote.className = 'form-note error';
+                }
             }
         });
     }
