@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainNav = document.getElementById('mainNav');
     const statusModal = document.getElementById('statusModal');
     const closeStatusModalBtn = document.getElementById('closeStatusModal');
+    const isLiveSite = /(^|\.)orientalvrstudio\.com$/i.test(window.location.hostname);
 
     const openStatusModal = () => {
         if (statusModal) {
@@ -53,7 +54,16 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     if (form) {
+        const nextInput = form.querySelector('input[name="_next"]');
+        if (nextInput && window.location.protocol !== 'file:') {
+            nextInput.value = `${window.location.origin}${window.location.pathname}#contacto`;
+        }
+
         form.addEventListener('submit', async function(e) {
+            if (isLiveSite) {
+                return;
+            }
+
             e.preventDefault();
 
             // Obtener datos del formulario
@@ -91,14 +101,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             } catch (error) {
                 console.error('Error:', error);
-                formNote.textContent = '⚠ No pudimos enviar por AJAX. Reintentando envío tradicional...';
-                formNote.className = 'form-note error';
-
-                try {
-                    HTMLFormElement.prototype.submit.call(form);
-                } catch (fallbackError) {
-                    console.error('Error en fallback:', fallbackError);
-                    formNote.textContent = `✗ ${error.message || 'Hubo un error. Intenta de nuevo o contacta directamente.'}`;
+                const isLocalFile = window.location.protocol === 'file:';
+                if (isLocalFile) {
+                    formNote.textContent = '✗ Estás abriendo el sitio como archivo local. Ejecutalo desde un servidor (localhost) para probar el formulario.';
+                    formNote.className = 'form-note error';
+                } else {
+                    formNote.textContent = '⚠ El envío por AJAX falló. Probá desde el sitio en producción.';
                     formNote.className = 'form-note error';
                 }
             }
